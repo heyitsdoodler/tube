@@ -175,22 +175,10 @@ A symmetric NAT is a router configuration that prevents NAT hole punching. This 
 You can check whether you are behind a symmetric NAT using the **NAT hole punching** field in `TubeInspector`. Multiple STUN servers with different addresses are required. If the result is `unknown`, try different STUN domains. This tool is not available on Web platform.
 You can also test here: [Symmetric NAT test](https://tomchen.github.io/symmetric-nat-test/), but note that false positives are common due to browser privacy behavior.
 
-Tube will attempt to map public ports via **UPnP**. Port mapping can help bypass symmetric NAT.  
-However, UPnP is not supported on all networks, commonly disabled on corporate, public, or VPN networks.
-You can verify UPnP support using the **UPnP port mapping** field in `TubeInspector`. Port mapping is not available on Web platform.
-If UPnP is available but connections still fail, the timeout may occur before the port opens. Try increasing the client's `peer_signaling_timeout` or `peer_signaling_max_attempts`.
-
-If both **NAT hole punching** and **UPnP port mapping** show `likely to fail` for two players, then a direct Internet connection is likely impossible without a relay server.  
+If **NAT hole punching** shows `likely to fail` for two players, then a direct Internet connection is likely impossible without a relay server.  
 You can still use **Tube** with your own servers to ensure reliable connectivity.  See: [Using your own servers](#using-your-own-servers).
 
 #### Minor known issues
-
-> [!CAUTION]  
-> Class 'UPNPDeviceMiniUPNP' already exists
-
-This is a core Godot Engine issue caused by multithreading. There is currently no known way to fix or suppress it without modifying the engine itself.
-
-</br>
 
 > [!CAUTION]  
 > Invalid status code. Got 'XXX', expected 101.
@@ -236,7 +224,7 @@ Many public STUN servers are available, such as those provided by Google.
 You can find an updated list here: [Public STUN list](https://gist.github.com/mondain/b0ec1cf5f60ae726202e)
 
 Currently, there are no reliable public TURN servers.
-Without a TURN server, there is no fallback mechanism when peers cannot establish a direct connection, for example, if both peers are behind a *symmetric NAT*. To mitigate this, Tube attempts to open ports automatically using *UPnP port mapping*. However, this feature is not supported on the Web platform.
+Without a TURN server, there is no fallback mechanism when peers cannot establish a direct connection, for example, if both peers are behind a *symmetric NAT*.
 
 For maximum reliability, you can deploy your own TURN server and add it to your `TubeContext` configuration see [Using your own servers](#using-your-own-servers).
 
