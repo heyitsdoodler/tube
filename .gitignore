@@ -12,3 +12,5 @@ webrtc.gdextension.uid
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+/deploy/
