@@ -214,7 +214,7 @@ It is recommended to use multiple trackers to improve connection reliability, as
 
 AndrooDev hosts a compatible public tracker at: `wss://tracker.androodev.com`. 
 
-To learn more about BitTorrent trackers and WebTorrent, see the [WebTorrent github](https://github.com/webtorrent/webtorrent) and the [Wikipedia BitTorrent Tracker page](https://en.wikipedia.org/wiki/BitTorrent_tracker).
+To learn more about BitTorrent trackers and WebTorrent, see the [WebTorrent GitHub](https://github.com/webtorrent/webtorrent) and the [Wikipedia BitTorrent Tracker page](https://en.wikipedia.org/wiki/BitTorrent_tracker).
 
 If you need more stable connections for your game, you can deploy your own tracker servers, see [Using your own servers](#using-your-own-servers).
 
