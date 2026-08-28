@@ -10,7 +10,7 @@ class_name TubeClient extends Node
 ## [br][br]
 ## When exporting to Android, make sure to enable the [code]INTERNET[/code] permission in the Android export preset before exporting the project or using one-click deploy. Otherwise, network communication of any kind will be blocked by Android.
 ##
-## @tutorial(README): https://github.com/koopmyers/tube
+## @tutorial(README): https://github.com/jonandrewdavis/tube
 ## @tutorial(Demo project): https://github.com/koopmyers/pixelary
 
 ## Emitted when a session has been successfully created.
