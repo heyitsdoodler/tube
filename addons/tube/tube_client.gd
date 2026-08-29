@@ -220,7 +220,7 @@ func create_session() -> void:
 	refuse_new_connections = false
 	_session_initiated.emit()
 	
-	var error := multiplayer_peer.create_server()
+	var error := multiplayer_peer.create_server(context.channel_config)
 	if error:
 		_terminate_session()
 		_raise_error(SessionError.CREATE_SESSION_FAILED, "Session creation failed, cannot create mutiplayer peer server: {error}".format({
@@ -266,7 +266,7 @@ func try_create_session() -> bool:
 	refuse_new_connections = false
 	_session_initiated.emit()
 	
-	var error := multiplayer_peer.create_server()
+	var error := multiplayer_peer.create_server(context.channel_config)
 	if error:
 		_terminate_session()
 		return false
@@ -320,7 +320,7 @@ func join_session(p_session_id: String) -> void:
 	peer_id = multiplayer_peer.generate_unique_id()
 	_session_initiated.emit()
 	
-	var error := multiplayer_peer.create_client(peer_id)
+	var error := multiplayer_peer.create_client(peer_id, context.channel_config)
 	if error:
 		_terminate_session()
 		_raise_error(SessionError.JOIN_SESSION_FAILED, "Joining session failed, cannot create mutiplayer peer client: {error}".format({
@@ -370,7 +370,7 @@ func try_join_session(p_session_id: String) -> bool:
 	peer_id = multiplayer_peer.generate_unique_id()
 	_session_initiated.emit()
 	
-	var error := multiplayer_peer.create_client(peer_id)
+	var error := multiplayer_peer.create_client(peer_id, context.channel_config)
 	if error:
 		_terminate_session()
 		return false
