@@ -396,6 +396,7 @@ func _terminate_session():
 	
 	session_id = ""
 	multiplayer_peer.close()
+	multiplayer_api.multiplayer_peer = OfflineMultiplayerPeer.new()
 
 
 func _is_local_signaling() -> bool:
