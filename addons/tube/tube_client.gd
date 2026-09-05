@@ -522,8 +522,8 @@ func _on_tracker_connected(p_tracker: TubeTracker):
 
 func _all_trackers_disconnected(): # is_online_signaling false
 	if State.TRY_CREATING_SESSION == state:
-		_session_create_finished.emit(false)
 		_terminate_session()
+		_session_create_finished.emit(false)
 	elif State.CREATING_SESSION == state:
 		if _is_local_signaling():
 			_raise_error(
